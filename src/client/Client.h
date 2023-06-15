@@ -4,6 +4,10 @@
 #include <mqtt/async_client.h>
 #include <string>
 
+using std::literals::string_literals::operator ""s;
+const auto CLIENT_ID = "lightswitch"s;
+const auto QOS = 1;
+
 class Client {
 public:
     /**
@@ -16,10 +20,10 @@ public:
     ~Client();
 
 private:
-    std::string serverAddress_;
-    std::string switchTopic_;
-    std::string lightTopic_;
+    std::string serverAddress_{};
+    std::string switchTopic_{};
+    std::string lightTopic_{};
     mqtt::async_client client_;
-    mqtt::connect_options connectionOptions_;
+    mqtt::connect_options connectionOptions_{};
     Callback callback_;
 };
