@@ -25,6 +25,8 @@ int main(int argc, char** argv) {
 
     try {
         Client mqtt_client(serverAddress, switchTopic, lightTopic);
+        SwitchObserver switchObserver{};
+        mqtt_client.registerSwitchObserver(&switchObserver);
 
         std::signal(SIGINT, sigInt);
 

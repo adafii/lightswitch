@@ -11,7 +11,7 @@ public:
 private:
     std::string name_;
 
-    void on_failure(const mqtt::token &token) override;
+    void on_failure(const mqtt::token& token) override;
 
-    void on_success(const mqtt::token &token) override;
+    void on_success(const mqtt::token& token) override;
 };
