@@ -9,25 +9,25 @@ ColumnLimit: 120
 
 BreakBeforeBraces: Custom
 BraceWrapping:
-  AfterClass:      false
+  AfterClass: false
   AfterControlStatement: false
-  AfterEnum:       false
-  AfterFunction:   false
-  AfterNamespace:  false
+  AfterEnum: false
+  AfterFunction: false
+  AfterNamespace: false
   AfterObjCDeclaration: false
-  AfterStruct:     false
-  AfterUnion:      false
+  AfterStruct: false
+  AfterUnion: false
   AfterExternBlock: false
-  BeforeCatch:     false
-  BeforeElse:      false
-  IndentBraces:    false
+  BeforeCatch: false
+  BeforeElse: false
+  IndentBraces: false
   SplitEmptyFunction: false
   SplitEmptyRecord: false
   SplitEmptyNamespace: false
 
 AlignConsecutiveAssignments: false
 AlignConsecutiveDeclarations: false
-AllowShortFunctionsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: false
 AllowAllParametersOfDeclarationOnNextLine: false
 AllowAllConstructorInitializersOnNextLine: false
 #ConstructorInitializerAllOnOneLineOrOnePerLine: true
@@ -43,11 +43,11 @@ PenaltyBreakBeforeFirstCallParameter: 3000
 SortIncludes: true
 IncludeBlocks: Merge
 IncludeCategories:
-  - Regex:           '^".*'
-    Priority:        1
-  - Regex:           '^<.*'
-    Priority:        2
+  - Regex: '^".*'
+    Priority: 1
+  - Regex: '^<.*'
+    Priority: 2
 
 # Do not format Doxygen comments
-CommentPragmas:  '^\\.+'
+CommentPragmas: '^\\.+'
 ...

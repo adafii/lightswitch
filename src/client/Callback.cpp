@@ -6,12 +6,13 @@ Callback::Callback(mqtt::async_client& client,
                    int qos,
                    std::string switchTopic,
                    std::function<void(mqtt::const_message_ptr)> notifyMessage)
-        : client_{client},
-          subscribeListener_{subscribeListener},
-          publishListener_{publishListener},
-          qos_{qos},
-          switchTopic_{std::move(switchTopic)},
-          notifyMessage_{std::move(notifyMessage)} {}
+    : client_{client},
+      subscribeListener_{subscribeListener},
+      publishListener_{publishListener},
+      qos_{qos},
+      switchTopic_{std::move(switchTopic)},
+      notifyMessage_{std::move(notifyMessage)} {
+}
 
 void Callback::reconnect() {
     std::this_thread::sleep_for(RECONNECT_TIMEOUT);
@@ -58,6 +59,5 @@ void Callback::message_arrived(mqtt::const_message_ptr message) {
 }
 
 void Callback::delivery_complete(mqtt::delivery_token_ptr token) {
-    std::cout << "\tDelivery complete for token: "
-              << (token ? token->get_message_id() : -1) << '\n';
+    std::cout << "\tDelivery complete for token: " << (token ? token->get_message_id() : -1) << '\n';
 }

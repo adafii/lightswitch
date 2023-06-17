@@ -1,15 +1,17 @@
 #pragma once
 
-#include "client/Callback.h"
 #include "ActionListener.h"
+#include "client/Callback.h"
 #include "observers/SwitchObserver.h"
 #include <mqtt/async_client.h>
 #include <string>
 
-using std::literals::string_literals::operator ""s;
+using std::literals::string_literals::operator""s;
 const auto CLIENT_ID = "lightswitch"s;
 const auto QOS = 0;
-const auto TOGGLE_LIGHT = R"({"state": "TOGGLE"})"s;
+const auto LIGHT_TOGGLE = R"({"state": "TOGGLE"})"s;
+const auto LIGHT_ON = R"({"state": "ON"})"s;
+const auto LIGHT_OFF = R"({"state": "OFF"})"s;
 
 class Client {
 public:
@@ -22,7 +24,9 @@ public:
 
     ~Client();
 
-    void toggleLight();
+    void lightToggle();
+    void lightOn();
+    void lightOff();
 
     void registerSwitchObserver(const SwitchObserver* switchObserver);
 
@@ -37,6 +41,8 @@ private:
     ActionListener publishListener_{"Publish"};
     Callback callback_;
     const mqtt::message_ptr toggle_message_{};
+    const mqtt::message_ptr on_message_{};
+    const mqtt::message_ptr off_message_{};
 
     const SwitchObserver* switchObserver_{nullptr};
 
