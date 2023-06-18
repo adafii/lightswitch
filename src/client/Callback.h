@@ -22,7 +22,6 @@ public:
      */
     Callback(mqtt::async_client& client,
              ActionListener& subscribeListener,
-             ActionListener& publishListener,
              int qos,
              std::string switchTopic,
              std::function<void(mqtt::const_message_ptr)> notifyMessage);
@@ -30,7 +29,6 @@ public:
 private:
     mqtt::async_client& client_;
     ActionListener& subscribeListener_;
-    ActionListener& publishListener_;
     int qos_{0};
     const std::string switchTopic_{};
     const std::string lightTopic_{};

@@ -9,7 +9,6 @@ Client::Client(std::string serverAddress, std::string switchTopic, std::string l
       connectionOptions_{mqtt::connect_options_builder().clean_session(false).finalize()},
       callback_{client_,
                 subscribeListener_,
-                publishListener_,
                 QOS,
                 switchTopic_,
                 [this](mqtt::const_message_ptr message) { receiveMessage(std::move(message)); }},
